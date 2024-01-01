@@ -36,9 +36,7 @@ def part2(num) -> bool:
     return valid
 
 
-check_increase_list = [
-    num for num in range(lower, upper + 1) if check_increase(num)
-]
+check_increase_list = [num for num in range(lower, upper + 1) if check_increase(num)]
 check_doubles_list = [num for num in check_increase_list if check_doubles(num)]
 part2_list = [num for num in check_doubles_list if part2(num)]
 
