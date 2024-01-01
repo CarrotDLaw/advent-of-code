@@ -1,6 +1,6 @@
 def part_one(data) -> int:
     data = [set(group.replace("\n", "")) for group in data]
-    
+
     return sum([len(group) for group in data])
 
 
@@ -15,7 +15,7 @@ def part_two(data) -> int:
             answers &= set(person)
 
         count += len(answers)
-    
+
     return count
 
 

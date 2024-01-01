@@ -16,7 +16,7 @@ with open("src/input/AoC2022Day05.txt") as file:
     line_num = 0
     for i in file_str:  # init stacks
         line_num += 1
-        if i == '\n':
+        if i == "\n":
             for j in stacks1:
                 j.pop()
                 j.reverse()
@@ -25,12 +25,12 @@ with open("src/input/AoC2022Day05.txt") as file:
                 j.reverse()
             break
         for j, k in zip(range(1, 36, 4), range(9)):
-            if i[j] != ' ':
+            if i[j] != " ":
                 stacks1[k].append(i[j])
                 stacks2[k].append(i[j])
 
     for i in file_str[line_num:]:  # init commands
-        commands.append([int(x) for x in re.findall(r'\d+', i)])
+        commands.append([int(x) for x in re.findall(r"\d+", i)])
 
 for i in commands:  # part 1
     for j in range(i[0]):

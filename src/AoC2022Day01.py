@@ -3,7 +3,7 @@ elves = []
 with open("src/input/AoC2022Day01.txt") as file:
     elf = 0
     for line in file.readlines():
-        if line != '\n':
+        if line != "\n":
             elf += int(line)
         else:
             elves.append(elf)

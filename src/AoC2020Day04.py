@@ -47,12 +47,15 @@ valid_passports2 = 0
 for passport in passports:
     if all(keys in passport for keys in required_fields):
         valid_passports1 += 1
-        if (validate_byr(passport["byr"]) and validate_ecl(passport["ecl"])
-                and validate_eyr(passport["eyr"])
-                and validate_hcl(passport["hcl"])
-                and validate_hgt(passport["hgt"])
-                and validate_iyr(passport["iyr"])
-                and validate_pid(passport["pid"])):
+        if (
+            validate_byr(passport["byr"])
+            and validate_ecl(passport["ecl"])
+            and validate_eyr(passport["eyr"])
+            and validate_hcl(passport["hcl"])
+            and validate_hgt(passport["hgt"])
+            and validate_iyr(passport["iyr"])
+            and validate_pid(passport["pid"])
+        ):
             valid_passports2 += 1
 
 print(valid_passports1)

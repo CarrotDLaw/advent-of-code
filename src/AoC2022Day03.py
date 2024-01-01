@@ -11,7 +11,7 @@ with open("src/input/AoC2022Day03.txt") as file:
         second_halves.append(list(line[l:]))
 
 for i in range(len(first_halves)):  # part 1
-    (result, ) = set(first_halves[i]) & set(second_halves[i])
+    (result,) = set(first_halves[i]) & set(second_halves[i])
     str(result)
     if result.islower():
         sum1 += ord(result) - 96
@@ -19,8 +19,7 @@ for i in range(len(first_halves)):  # part 1
         sum1 += ord(result) - 64 + 26
 
 for i in range(0, len(part2_list) - 2, 3):  # part 2
-    (result, ) = set(part2_list[i]) & set(part2_list[i + 1]) & set(
-        part2_list[i + 2])
+    (result,) = set(part2_list[i]) & set(part2_list[i + 1]) & set(part2_list[i + 2])
     str(result)
     if result.islower():
         sum2 += ord(result) - 96
