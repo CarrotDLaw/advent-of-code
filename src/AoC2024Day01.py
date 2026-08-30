@@ -33,4 +33,3 @@ for key in dict_1:
     similarity_score += key * dict_1.get(key, 0) * dict_2.get(key, 0)
 
 print(similarity_score)
-

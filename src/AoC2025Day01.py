@@ -26,9 +26,7 @@ for s in strings:
     next_zero_dist: int = 0
 
     if dir == "R":
-        next_zero_dist = (DIAL_SIZE - dial_pos) % DIAL_SIZE
-        if next_zero_dist == 0:
-            next_zero_dist = DIAL_SIZE
+        next_zero_dist = DIAL_SIZE - dial_pos
 
     if dir == "L":
         next_zero_dist = dial_pos
