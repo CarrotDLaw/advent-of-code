@@ -1,44 +1,45 @@
-lower = 231832
-upper = 767346
+l = 231832
+u = 767346
 
 
-def check_increase(num) -> bool:
-    a = str(num)
+def check_increase(num: int) -> bool:
+    s = str(num)
     for i in range(5):
-        if a[i] > a[i + 1]:
+        if s[i] > s[i + 1]:
             return False
 
     return True
 
 
-def check_doubles(num) -> bool:
-    a = str(num)
+def check_doubles(num: int) -> bool:
+    s = str(num)
     for i in range(5):
-        if a[i] == a[i + 1]:
+        if s[i] == s[i + 1]:
             return True
 
     return False
 
 
-def part2(num) -> bool:
-    a = str(num)
-    valid = False
-    if a[0] == a[1] and a[1] != a[2]:
-        valid = True
-    if a[1] == a[2] and a[2] != a[3]:
-        valid = True
-    if a[2] == a[3] and a[3] != a[4]:
-        valid = True
-    if a[3] == a[4] and a[4] != a[5]:
-        valid = True
-    if a[4] == a[5] and a[4] != a[3]:
-        valid = True
-    return valid
+def check_part_2(num: int) -> bool:
+    s = str(num)
+
+    if s[0] == s[1] and s[1] != s[2]:
+        return True
+    if s[0] != s[1] and s[1] == s[2] and s[2] != s[3]:
+        return True
+    if s[1] != s[2] and s[2] == s[3] and s[3] != s[4]:
+        return True
+    if s[2] != s[3] and s[3] == s[4] and s[4] != s[5]:
+        return True
+    if s[3] != s[4] and s[4] == s[5]:
+        return True
+
+    return False
 
 
-check_increase_list = [num for num in range(lower, upper + 1) if check_increase(num)]
-check_doubles_list = [num for num in check_increase_list if check_doubles(num)]
-part2_list = [num for num in check_doubles_list if part2(num)]
+check_increase_list: list[int] = [n for n in range(l, u + 1) if check_increase(n)]
+check_doubles_list: list[int] = [n for n in check_increase_list if check_doubles(n)]
+part_2_list: list[int] = [n for n in check_doubles_list if check_part_2(n)]
 
 print(len(check_doubles_list))
-print(len(part2_list))
+print(len(part_2_list))
