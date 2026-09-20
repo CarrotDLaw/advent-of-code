@@ -4,7 +4,7 @@ u = 767346
 
 def check_increase(num: int) -> bool:
     s = str(num)
-    for i in range(5):
+    for i in range(len(s) - 1):
         if s[i] > s[i + 1]:
             return False
 
@@ -13,7 +13,7 @@ def check_increase(num: int) -> bool:
 
 def check_doubles(num: int) -> bool:
     s = str(num)
-    for i in range(5):
+    for i in range(len(s) - 1):
         if s[i] == s[i + 1]:
             return True
 
