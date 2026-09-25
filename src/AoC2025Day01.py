@@ -1,5 +1,5 @@
 DIAL_SIZE: int = 100
-dir_sign_map: dict[str, int] = {"L": -1, "R": 1}
+DIR: dict[str, int] = {"L": -1, "R": 1}
 
 dial_pos: int = 50
 count: int = 0
@@ -11,7 +11,7 @@ for s in strings:
     dir: str = s[0]
     dist: int = int(s[1:])
 
-    dial_pos = (dial_pos + dir_sign_map.get(dir, 0) * dist + DIAL_SIZE) % DIAL_SIZE
+    dial_pos = (dial_pos + DIR.get(dir, 0) * dist + DIAL_SIZE) % DIAL_SIZE
 
     if dial_pos == 0:
         count += 1
@@ -36,6 +36,6 @@ for s in strings:
     if dist >= next_zero_dist:
         count += 1 + (dist - next_zero_dist) // DIAL_SIZE
 
-    dial_pos = (dial_pos + dir_sign_map.get(dir, 0) * dist + DIAL_SIZE) % DIAL_SIZE
+    dial_pos = (dial_pos + DIR.get(dir, 0) * dist + DIAL_SIZE) % DIAL_SIZE
 
 print(count)
