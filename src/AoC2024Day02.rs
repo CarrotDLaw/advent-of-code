@@ -32,6 +32,7 @@ fn is_safe_tolerated(arr: &[usize]) -> bool {
       .enumerate()
       .filter_map(|(j, x)| (i != j).then_some(*x))
       .collect::<Vec<_>>();
+
     is_safe(&arr_tolerated)
   })
 }
