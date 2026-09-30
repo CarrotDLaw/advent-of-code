@@ -50,3 +50,28 @@ fn is_valid_adjacent_difference(arr: &[usize]) -> bool {
     .windows(2)
     .all(|w| (1..=3).contains(&(w[0].abs_diff(w[1]))))
 }
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn test_is_safe() {
+    assert!(is_safe(&[7, 6, 4, 2, 1]));
+    assert!(!is_safe(&[1, 2, 7, 8, 9]));
+    assert!(!is_safe(&[9, 7, 6, 2, 1]));
+    assert!(!is_safe(&[1, 3, 2, 4, 5]));
+    assert!(!is_safe(&[8, 6, 4, 4, 1]));
+    assert!(is_safe(&[1, 3, 6, 7, 9]));
+  }
+
+  #[test]
+  fn test_is_safe_tolerated() {
+    assert!(is_safe_tolerated(&[7, 6, 4, 2, 1]));
+    assert!(!is_safe_tolerated(&[1, 2, 7, 8, 9]));
+    assert!(!is_safe_tolerated(&[9, 7, 6, 2, 1]));
+    assert!(is_safe_tolerated(&[1, 3, 2, 4, 5]));
+    assert!(is_safe_tolerated(&[8, 6, 4, 4, 1]));
+    assert!(is_safe_tolerated(&[1, 3, 6, 7, 9]));
+  }
+}
