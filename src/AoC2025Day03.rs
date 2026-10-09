@@ -72,7 +72,7 @@ fn part_2(input: &[&str], num_joltage_digit: usize) -> u64 {
 mod tests {
   use super::*;
 
-  const TEST_INPUT: &str = "987654321111111\n811111111111119\n234234234234278\n818181911112111";
+  const TEST_INPUT: &str = "987654321111111\n811111111111119\n234234234234278\n818181911112111\n";
 
   #[test]
   fn test_part_1() {
