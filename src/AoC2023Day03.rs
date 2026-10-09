@@ -1,11 +1,11 @@
 use std::collections::HashMap;
 
-trait CharValidation {
+trait CharExt {
   fn is_valid_symbol(&self) -> bool;
   fn is_asterisk(&self) -> bool;
 }
 
-impl CharValidation for char {
+impl CharExt for char {
   fn is_valid_symbol(&self) -> bool {
     !self.is_ascii_digit() && *self != '.'
   }
@@ -148,7 +148,7 @@ fn part_2(grid: &[Vec<char>]) -> usize {
 mod tests {
   use super::*;
 
-  const TEST_INPUT: &str = "467..114..\n...*......\n..35..633.\n......#...\n617*......\n.....+.58.\n..592.....\n......755.\n...$.*....\n.664.598..";
+  const TEST_INPUT: &str = "467..114..\n...*......\n..35..633.\n......#...\n617*......\n.....+.58.\n..592.....\n......755.\n...$.*....\n.664.598..\n";
 
   #[test]
   fn test_part_1() {
