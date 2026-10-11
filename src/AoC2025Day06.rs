@@ -44,18 +44,12 @@ impl Column {
 }
 
 fn main() {
-  let input = include_str!("input/AoC2025Day06.txt");
-  let input_1 = input
-    .lines()
-    .filter(|line| !line.is_empty())
-    .map(|line| line.split_whitespace().collect::<Vec<_>>())
-    .collect::<Vec<_>>();
-  let input_2 = input
+  let input = include_str!("input/AoC2025Day06.txt")
     .lines()
     .filter(|line| !line.is_empty())
     .collect::<Vec<_>>();
-  let columns_1 = parse_columns_part_1(&input_1);
-  let columns_2 = parse_columns_part_2(&input_2);
+  let columns_1 = parse_columns_part_1(&input);
+  let columns_2 = parse_columns_part_2(&input);
 
   println!("Part 1: {}", evaluate(&columns_1));
   println!("Part 2: {}", evaluate(&columns_2));
@@ -65,7 +59,11 @@ fn evaluate(columns: &[Column]) -> usize {
   columns.iter().map(Column::evaluate).sum()
 }
 
-fn parse_columns_part_1(input: &[Vec<&str>]) -> Vec<Column> {
+fn parse_columns_part_1(input: &[&str]) -> Vec<Column> {
+  let input = input
+    .iter()
+    .map(|line| line.split_whitespace().collect::<Vec<_>>())
+    .collect::<Vec<_>>();
   let (operand_rows, operator_row) = input.split_at(input.len() - 1);
   let operator_row = operator_row.first().unwrap();
 
@@ -160,7 +158,6 @@ mod tests {
       .lines()
       .map(str::trim)
       .filter(|line| !line.is_empty())
-      .map(|line| line.split_whitespace().collect::<Vec<_>>())
       .collect::<Vec<_>>();
     let columns = parse_columns_part_1(&input);
 
@@ -204,7 +201,6 @@ mod tests {
       .lines()
       .map(str::trim)
       .filter(|line| !line.is_empty())
-      .map(|line| line.split_whitespace().collect::<Vec<_>>())
       .collect::<Vec<_>>();
     let columns = parse_columns_part_1(&input);
 
