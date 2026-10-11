@@ -1,4 +1,3 @@
-
 #[derive(PartialEq, Debug)]
 enum Operator {
   Add,
@@ -220,6 +219,6 @@ mod tests {
       .collect::<Vec<_>>();
     let columns = parse_columns_part_2(&input);
 
-    assert_eq!(evaluate(&columns), 1058 + 3253600 + 625 + 8544);
+    assert_eq!(evaluate(&columns), (1058 + 3253600 + 625 + 8544));
   }
 }
