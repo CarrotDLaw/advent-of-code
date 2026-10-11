@@ -1,3 +1,5 @@
+use std::iter::once;
+
 #[derive(PartialEq, Debug)]
 enum Operator {
   Add,
@@ -70,7 +72,7 @@ fn parse_columns_part_1(input: &[&str]) -> Vec<Column> {
   operator_row
     .iter()
     .enumerate()
-    .map(|(i, &op)| {
+    .map(|(i, op)| {
       let operands = operand_rows
         .iter()
         .map(|row| row.get(i).unwrap().parse().unwrap())
@@ -89,17 +91,18 @@ fn parse_columns_part_2(input: &[&str]) -> Vec<Column> {
     .collect::<Vec<_>>();
   let (operand_rows, operator_row) = input.split_at(input.len() - 1);
   let operator_row = operator_row.first().unwrap();
-  let mut operators_indices = operator_row
+  let operators_indices = operator_row
     .iter()
     .enumerate()
     .filter_map(|(i, op)| (op.is_operator()).then_some(i))
-    .collect::<Vec<_>>()
+    .collect::<Vec<_>>();
+  let operator_indices = operators_indices
     .windows(2)
     .map(|w| w[0]..(w[1] - 1))
+    .chain(once(*operators_indices.last().unwrap()..operator_row.len()))
     .collect::<Vec<_>>();
-  operators_indices.push((operators_indices.last().unwrap().end + 1)..operator_row.len());
 
-  operators_indices
+  operator_indices
     .iter()
     .map(|range| {
       let operands = range
