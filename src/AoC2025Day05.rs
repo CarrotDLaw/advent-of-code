@@ -38,7 +38,7 @@ fn part_2(fresh_id_ranges: &[RangeInclusive<usize>]) -> usize {
   let mut fresh_id_ranges = fresh_id_ranges.to_vec();
   fresh_id_ranges.sort_unstable_by_key(|range| *range.start());
 
-  let mut fresh_id_ranges_iter = fresh_id_ranges.into_iter().peekable();
+  let mut fresh_id_ranges_iter = fresh_id_ranges.into_iter();
   let first_range = fresh_id_ranges_iter.next().unwrap();
 
   let union = fresh_id_ranges_iter.fold(vec![first_range], |mut acc, range| {
