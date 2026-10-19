@@ -6,7 +6,7 @@ trait StringExt {
 
 impl StringExt for str {
   fn parse_fresh_id_range(&self) -> Result<RangeInclusive<usize>, ()> {
-    let mut parts = self.split('-');
+    let mut parts = self.split("-");
     let start = parts.next().ok_or(())?.parse::<usize>().map_err(|_| ())?;
     let end = parts.next().ok_or(())?.parse::<usize>().map_err(|_| ())?;
 

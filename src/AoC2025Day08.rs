@@ -102,7 +102,7 @@ fn main() {
   let input = include_str!("input/AoC2025Day08.txt")
     .lines()
     .map(str::trim)
-    .filter_map(|line| (!line.trim().is_empty()).then_some(line.parse::<Point>().ok()?))
+    .filter_map(|line| (!line.is_empty()).then_some(line.parse::<Point>().ok()?))
     .collect::<Vec<_>>();
 
   println!("Part 1: {}", part_1(&input, None, None));
@@ -170,7 +170,6 @@ mod tests {
   #[test]
   fn test_part_1() {
     let input = TEST_INPUT
-      .trim()
       .lines()
       .filter_map(|line| line.parse::<Point>().ok())
       .collect::<Vec<_>>();
@@ -181,7 +180,6 @@ mod tests {
   #[test]
   fn test_part_2() {
     let input = TEST_INPUT
-      .trim()
       .lines()
       .filter_map(|line| line.parse::<Point>().ok())
       .collect::<Vec<_>>();

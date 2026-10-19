@@ -154,7 +154,7 @@ fn main() {
   let input = include_str!("input/AoC2025Day09.txt")
     .lines()
     .map(str::trim)
-    .filter_map(|line| (!line.trim().is_empty()).then_some(line.parse::<Point>().ok()?))
+    .filter_map(|line| (!line.is_empty()).then_some(line.parse::<Point>().ok()?))
     .collect::<Vec<_>>();
 
   println!("Part 1: {}", part_1(&input));
@@ -207,7 +207,7 @@ mod tests {
     let input = TEST_INPUT
       .lines()
       .map(str::trim)
-      .filter_map(|line| (!line.trim().is_empty()).then_some(line.parse::<Point>().ok()?))
+      .filter_map(|line| (!line.is_empty()).then_some(line.parse::<Point>().ok()?))
       .collect::<Vec<_>>();
 
     assert_eq!(part_1(&input), 50);
@@ -218,7 +218,7 @@ mod tests {
     let input = TEST_INPUT
       .lines()
       .map(str::trim)
-      .filter_map(|line| (!line.trim().is_empty()).then_some(line.parse::<Point>().ok()?))
+      .filter_map(|line| (!line.is_empty()).then_some(line.parse::<Point>().ok()?))
       .collect::<Vec<_>>();
 
     assert_eq!(part_2(&input), 24);
